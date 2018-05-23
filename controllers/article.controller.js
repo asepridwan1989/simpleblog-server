@@ -164,19 +164,20 @@ module.exports = {
         Article.find()
         .populate('userId', 'username')
         .then(article=>{
-          console.log('article')
+          console.log(article)
           if(article.length > 0){
               res.status(200).json({
                   message: 'successfuly got data',
                   data: article
               })
           }else{
-            res.status(200).json({
+                res.status(200).json({
                 message: 'you dont have any article'
             })
           }
         })
         .catch(err=>{
+            console.log('error', err)
             res.status(403).json({
                 message: 'invalid user'
             })
