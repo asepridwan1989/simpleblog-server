@@ -56,8 +56,8 @@ module.exports = {
     },
 
     editArticle: (req, res) => {
+        console.log('masuk edit')
         const id = mongoose.Types.ObjectId(req.params.id)
-        const task = req.body.task
         const token = req.headers.token
         let verified = jwt.decode(token,process.env.TOKENKEY)
         const userId = verified.id
@@ -83,8 +83,9 @@ module.exports = {
                   })
                 } else {
                   res.status(201).send({
+                    console.log('berhasilll', result)
                     message: 'successfuly edited article',
-                    data: article
+                    data: result
                   })
                 }
               })
