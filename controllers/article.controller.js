@@ -163,6 +163,7 @@ module.exports = {
         Article.find()
         .populate('userId', 'username')
         .then(article=>{
+          console.log('article')
           if(article.length > 0){
               res.status(200).json({
                   message: 'successfuly got data',
