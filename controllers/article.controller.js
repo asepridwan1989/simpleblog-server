@@ -160,6 +160,7 @@ module.exports = {
         })
     },
     getListAll: (req, res)=>{
+        console.log('masuk home')
         Article.find()
         .populate('userId', 'username')
         .then(article=>{

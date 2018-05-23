@@ -1,8 +1,7 @@
 const jwt = require('jsonwebtoken')
 
 module.exports = {
-    auth: function(req, res, next) {
-      console.log('bodyudinmskmdpvmdpvksmpmvppsdmvpdsmvposmpvo==============>>>>',req.body, 'token===', req.headers)
+    auth: function(req, res, next) {      
         let token = req.headers.token
         if (token) {
             let verified = jwt.verify(token, process.env.TOKENKEY)
